@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
   spec.extensions = ['ext/cppjieba_rb/extconf.rb']
 
-  spec.files         = `git ls-files -z`.split('\x0')
+  spec.files         = `git ls-files -z`.split("\x0")
   relative_path = File.expand_path('../', __FILE__) + '/'
   `git submodule --quiet foreach pwd`.split($\).each do |submodule_path|
     if (ENV['OS'] == 'Windows_NT') && submodule_path[0] == '/'
@@ -34,7 +34,6 @@ Gem::Specification.new do |spec|
       submodule_files_paths = submodule_files.map do |filename|
         File.join(submodule_path, filename)
       end
-      p submodule_files_paths
       # add relative paths to gem.files
       spec.files += submodule_files_paths
     end

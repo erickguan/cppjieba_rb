@@ -1,6 +1,6 @@
-require 'jieba_rb/jieba_rb'
-require 'jieba_rb/version'
-require 'jieba_rb/segment'
+require 'cppjieba_rb/cppjieba_rb'
+require 'cppjieba_rb/version'
+require 'cppjieba_rb/segment'
 
 module CppjiebaRb
   EXT_BASE = File.join(File.dirname(__FILE__), '..', 'ext', 'cppjieba', 'dict')
