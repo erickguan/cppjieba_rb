@@ -28,13 +28,13 @@ Gem::Specification.new do |spec|
       # Make the submodule path relative
       submodule_path = submodule_path.gsub(/#{relative_path}/i, '')
       # issue git ls-files in submodule's directory
-      submodule_files = `git ls-files`.split($\)
+      submodule_files = `git ls-files -z`.split("\x0")
 
       # prepend the submodule path to create relative file paths
       submodule_files_paths = submodule_files.map do |filename|
         File.join(submodule_path, filename)
       end
-
+      p submodule_files_paths
       # add relative paths to gem.files
       spec.files += submodule_files_paths
     end
