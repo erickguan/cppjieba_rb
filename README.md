@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/fantasticfears/cppjieba_rb.png?branch=master)](https://travis-ci.org/fantasticfears/cppjieba_rb)
 
++[![Patreon](https://img.shields.io/badge/back_on-patreon-red.svg)](https://www.patreon.com/fantasticfears)
+
 Ruby bindings for [Cppjieba](https://github.com/yanyiwu/cppjieba). C++11 required. (gcc 4.8+)
 
 ## Installation
