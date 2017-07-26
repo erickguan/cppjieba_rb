@@ -22,6 +22,10 @@ module CppjiebaRb
     internal.segment_tag(str)
   end
 
+  def self.filter_stop_word(arr)
+    arr.reject { |w| internal.stop_word?(w) }
+  end
+
   class << self
     def internal
       @backend ||= CppjiebaRb::Internal.new(DICT_PATH,

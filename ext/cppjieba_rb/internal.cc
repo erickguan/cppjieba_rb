@@ -1,5 +1,10 @@
 #include <ruby.h>
 #include <ruby/encoding.h>
+
+#include <string>
+#include <iostream>
+#include <unordered_set>
+
 #include "cppjieba/Jieba.hpp"
 
 #define GET_CPPJIEBA(_data) jieba_cpp_data* _data; \
@@ -7,6 +12,7 @@
 
 typedef struct {
     cppjieba::Jieba* jieba;
+    std::unordered_set<std::string>* stop_words;
 } jieba_cpp_data;
 
 // make compiler happy
@@ -26,6 +32,8 @@ static void jieba_cpp_free(void* _this)
     jieba_cpp_data* data = static_cast<jieba_cpp_data*>(_this);
     delete data->jieba;
     data->jieba = nullptr;
+    delete data->stop_words;
+    data->stop_words = nullptr;
 }
 
 static size_t jieba_cpp_memsize(const void* _)
@@ -61,6 +69,13 @@ VALUE internal_initialize(VALUE self,
                                       StringValueCStr(user_dict_path),
                                       StringValueCStr(idf_path),
                                       StringValueCStr(stop_word_path));
+    data->stop_words = new std::unordered_set<std::string>();
+    std::ifstream ifs(StringValueCStr(stop_word_path));
+    std::string line;
+    while (getline(ifs, line)) {
+        data->stop_words->insert(line);
+    }
+    assert(data->stop_words->size());
 }
 
 VALUE internal_extract_keyword(VALUE self, VALUE text_rbs, VALUE topN)
@@ -127,6 +142,16 @@ static VALUE internal_segment_tag(VALUE self, VALUE text_rbs)
     return result;
 }
 
+static VALUE internal_stop_word(VALUE self, VALUE word)
+{
+    std::string test(StringValueCStr(word));
+    GET_CPPJIEBA(data);
+    if (data->stop_words->find(test) != data->stop_words->end()) {
+        return Qtrue;
+    } else {
+        return Qfalse;
+    }
+}
 
 void Init_internal()
 {
@@ -143,6 +168,7 @@ void Init_internal()
     rb_define_method(rb_cCppjiebaRb_Internal, "extract_keyword", (ruby_method*) &internal_extract_keyword, 2);
     rb_define_method(rb_cCppjiebaRb_Internal, "segment", (ruby_method*) &internal_segment, 4);
     rb_define_method(rb_cCppjiebaRb_Internal, "segment_tag", (ruby_method*) &internal_segment_tag, 1);
+    rb_define_method(rb_cCppjiebaRb_Internal, "stop_word?", (ruby_method*) &internal_stop_word, 1);
 }
 
 }
