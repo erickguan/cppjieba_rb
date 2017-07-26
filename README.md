@@ -79,3 +79,4 @@ CppjiebaRb.extract_keyword "我是拖拉机学院手扶拖拉机专业的。不�
 ## TODO
 
 - including 367w dict and provide the option for it.
+- cppjieba implements trie tree, it's memory consuming
