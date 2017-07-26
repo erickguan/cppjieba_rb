@@ -14,7 +14,7 @@ LIB_DIRS = [
   LIBDIR
 ]
 
-dir_config('cppjieba_src', HEADER_DIRS, LIB_DIRS)
+dir_config('cppjieba_rb', HEADER_DIRS, LIB_DIRS)
 
 CONFIG["CXXFLAGS"] += " -std=c++11 -O3"
 $CXXFLAGS = "#{$CXXFLAGS} -std=c++11 -O3"
