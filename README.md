@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/fantasticfears/cppjieba_rb.png?branch=master)](https://travis-ci.org/fantasticfears/cppjieba_rb)
 
-+[![Patreon](https://img.shields.io/badge/back_on-patreon-red.svg)](https://www.patreon.com/fantasticfears)
+[![Patreon](https://img.shields.io/badge/back_on-patreon-red.svg)](https://www.patreon.com/fantasticfears)
 
 Ruby bindings for [Cppjieba](https://github.com/yanyiwu/cppjieba). C++11 required. (gcc 4.8+)
 
@@ -72,7 +72,7 @@ CppjiebaRb.extract_keyword "我是拖拉机学院手扶拖拉机专业的。不�
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/cppjieba_rb/fork )
+1. Fork it ( http://github.com/fantasticfears/cppjieba_rb/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
