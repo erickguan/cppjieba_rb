@@ -8,6 +8,8 @@
 
 Ruby bindings for [Cppjieba](https://github.com/yanyiwu/cppjieba). C++11 required. (gcc 4.8+)
 
+The TRIE tree has high memory usage. For default dict, it uses ~120 MB memory.
+
 ## Installation
 
 Add this line to your application's Gemfile:
