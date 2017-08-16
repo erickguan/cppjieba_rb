@@ -30,7 +30,7 @@ Mix Segment mode (HMM with Max Prob, default):
 
 ```ruby
 require 'cppjieba_rb'
-seg = CppjiebaRb::Segment.new  # equivalent to "JiebaRb::Segment.new mode: :mix"
+seg = CppjiebaRb::Segment.new  # equivalent to "CppjiebaRb::Segment.new mode: :mix"
 words = seg.segment "令狐冲是云计算行业的专家"
 # 令狐冲 是 云 计算 行业 的 专家
 ```
