@@ -8,6 +8,8 @@
 
 Ruby bindings for [Cppjieba](https://github.com/yanyiwu/cppjieba). C++11 required. (gcc 4.8+)
 
+The TRIE tree has high memory usage. For default dict, it uses ~120 MB memory.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -28,7 +30,7 @@ Mix Segment mode (HMM with Max Prob, default):
 
 ```ruby
 require 'cppjieba_rb'
-seg = CppjiebaRb::Segment.new  # equivalent to "JiebaRb::Segment.new mode: :mix"
+seg = CppjiebaRb::Segment.new  # equivalent to "CppjiebaRb::Segment.new mode: :mix"
 words = seg.segment "令狐冲是云计算行业的专家"
 # 令狐冲 是 云 计算 行业 的 专家
 ```
