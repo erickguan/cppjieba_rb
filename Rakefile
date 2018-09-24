@@ -2,7 +2,7 @@ require "bundler/gem_tasks"
 require 'rake/testtask'
 require 'rake/extensiontask'
 
-gem = Gem::Specification.load(File.dirname(__FILE__) + '/cppjieba_rb.gemspec')
+gem = Gem::Specification.load(File.dirname(__FILE__) + '/cppjieba-rb.gemspec.gemspec')
 Rake::ExtensionTask.new('cppjieba_rb', gem) do |ext|
   ext.lib_dir = File.join('lib', 'cppjieba_rb')
 end

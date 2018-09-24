@@ -75,7 +75,8 @@ VALUE internal_initialize(VALUE self,
     while (getline(ifs, line)) {
         data->stop_words->insert(line);
     }
-    assert(data->stop_words->size());
+    assert(data->stop_words->size() != 0);
+    return self;
 }
 
 VALUE internal_extract_keyword(VALUE self, VALUE text_rbs, VALUE topN)
