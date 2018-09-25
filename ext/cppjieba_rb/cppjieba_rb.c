@@ -1,5 +1,6 @@
 #include <ruby.h>
 
+void Init_internal();
 VALUE rb_mCppjiebaRb;
 
 void Init_cppjieba_rb()
