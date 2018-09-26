@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Erick Guan']
   spec.email         = ['fantasticfears@gmail.com']
   spec.summary       = 'cppjieba binding for ruby'
-  spec.description   = 'cppjieba binding for ruby'
+  spec.description   = 'cppjieba binding for ruby. Mainly used by Discourse.'
   spec.homepage = 'https://github.com/fantasticfears/cppjieba_rb'
   spec.required_ruby_version = '>=2.3.0'
   spec.license       = 'MIT'
@@ -44,7 +44,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.5'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rake-compiler'
-  spec.add_development_dependency 'minitest'
+  spec.add_development_dependency 'rake', '~> 12'
+  spec.add_development_dependency 'rake-compiler', '~> 1'
+  spec.add_development_dependency 'minitest', '~> 5.11'
 end
