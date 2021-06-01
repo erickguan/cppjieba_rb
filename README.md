@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/cppjieba_rb.svg)](http://badge.fury.io/rb/cppjieba_rb)
 
-[![Build Status](https://travis-ci.org/fantasticfears/cppjieba_rb.png?branch=master)](https://travis-ci.org/fantasticfears/cppjieba_rb)
+[![Build Status](https://travis-ci.com/erickguan/cppjieba_rb.svg?branch=master)](https://travis-ci.com/erickguan/cppjieba_rb)
 
 [![Patreon](https://img.shields.io/badge/back_on-patreon-red.svg)](https://www.patreon.com/fantasticfears)
 
