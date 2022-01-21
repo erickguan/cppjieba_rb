@@ -163,7 +163,7 @@ void Init_internal()
     rb_sFull = rb_intern("full");
     u8_enc = rb_utf8_encoding();
 
-    rb_cCppjiebaRb_Internal = rb_define_class_under(rb_mCppjiebaRb, "Internal", rb_cData);
+    rb_cCppjiebaRb_Internal = rb_define_class_under(rb_mCppjiebaRb, "Internal", rb_cObject);
     rb_define_alloc_func(rb_cCppjiebaRb_Internal, internal_alloc);
     rb_define_method(rb_cCppjiebaRb_Internal, "initialize", (ruby_method*) &internal_initialize, 5);
     rb_define_method(rb_cCppjiebaRb_Internal, "extract_keyword", (ruby_method*) &internal_extract_keyword, 2);
