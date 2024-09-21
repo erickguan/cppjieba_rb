@@ -8,7 +8,7 @@ permissions:
   id-token: write # required for workflow to publish gem
 
 jobs:
-  package-linting:
+  release:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,4 +27,15 @@ jobs:
       # Run `rake release` to create git tag and push to repository based on `lib/cppjieba_rb/version.rb`.
       # Then publish the new gem via trusted publishing
       # Read more on https://guides.rubygems.org/trusted-publishing/releasing-gems/
-      - uses: rubygems/release-gem@v1
+      - name: Publish gem
+        uses: rubygems/release-gem@v1
+
+      - name: Create GitHub Release
+        run: |
+          VERSION="v$(bundle exec rake version)"
+
+          gh release create \
+            $VERSION \
+            --verify-tag \
+            --generate-notes \
+            --latest
