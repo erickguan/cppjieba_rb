@@ -32,6 +32,8 @@ jobs:
         uses: rubygems/release-gem@v1
 
       - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION="v$(bundle exec rake version)"
 
