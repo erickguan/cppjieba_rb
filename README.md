@@ -14,7 +14,7 @@ Add this line to your application's Gemfile:
 
 Or pin a version:
 
-    gem 'cppjieba_rb', '~> 0.4.2', require: false
+    gem 'cppjieba_rb', '~> 0.4.4', require: false
 
 Or install it as:
 
@@ -30,9 +30,10 @@ Mix Segment mode (HMM with Max Prob, default):
 
 ```ruby
 require 'cppjieba_rb'
-seg = CppjiebaRb::Segment.new  # equivalent to "CppjiebaRb::Segment.new mode: :mix"
-words = seg.segment "令狐冲是云计算行业的专家"
-# 令狐冲 是 云 计算 行业 的 专家
+
+seg = CppjiebaRb::Segment.new  # equivalent to "CppjiebaRb::Segment.new(mode: :mix)"
+words = seg.segment("令狐冲是云计算行业的专家")
+# ["令狐冲", "是", "云计算", "行业", "的", "专家"]
 ```
 
 The alternative convenient method:
@@ -44,16 +45,17 @@ CppjiebaRb.segment('令狐冲是云计算行业的专家', mode: :mix)
 HMM or Max probability (mp) Segment mode:
 
 ```ruby
-seg = CppjiebaRb::Segment.new mode: :hmm # or  mode: :mp
-seg.segment "令狐冲是云计算行业的专家"
+seg = CppjiebaRb::Segment.new(mode: :hmm_ # or  mode: :mp
+seg.segment("令狐冲是云计算行业的专家")
 ```
 
 ### Word tagging Usage
 
 ```ruby
 require 'cppjieba_rb'
-CppjiebaRb.segment_tag "我是蓝翔技工拖拉机学院手扶拖拉机专业的。"
-# [{"我"=>"r"}, {"是"=>"v"}, {"蓝翔"=>"x"}, {"技工"=>"n"}, {"拖拉机"=>"n"}, {"学院"=>"n"}, {"手扶拖拉机"=>"n"}, {"专业"=>"n"}, {"的"=>"uj"}, {"。"=>"x"}]
+
+CppjiebaRb.segment_tag("《忍者蝙蝠侠》续集《忍者蝙蝠侠vs极道联盟》发布角色预告片。")
+# {"《"=>"x", "忍者"=>"n", "蝙蝠侠"=>"n", "》"=>"x", "续集"=>"v", "vs"=>"eng", "极道"=>"x", "联盟"=>"j", "发布"=>"v", "角色"=>"n", "预告片"=>"n", "。"=>"x"}
 ```
 
 ## Keyword Extractor Usage
@@ -61,20 +63,20 @@ CppjiebaRb.segment_tag "我是蓝翔技工拖拉机学院手扶拖拉机专业�
 ```ruby
 require 'cppjieba_rb'
 
-CppjiebaRb.extract_keyword "我是拖拉机学院手扶拖拉机专业的。不用多久，我就会升职加薪，当上CEO，走上人生巅峰。", 5
+CppjiebaRb.extract_keyword("山西退沙村的明代鼓楼，在今年初被拆掉了。", 5)
 
 # [
-#   ["CEO", 11.739204307083542],
-#   ["升职", 10.8561552143],
-#   ["加薪", 10.642581114],
-#   ["手扶拖拉机", 10.0088573539],
-#   ["巅峰", 9.49395840471]
+#    ["退沙村", 11.739204307083542],
+#    ["拆掉", 9.65218240993],
+#    ["鼓楼", 9.37888907493],
+#    ["今年初", 8.89004235788],
+#    ["明代", 6.52667579263]
 # ]
 ```
 
 ## Contributing
 
-1. Fork it ( http://github.com/fantasticfears/cppjieba_rb/fork )
+1. Fork it ( http://github.com/erickguan/cppjieba_rb/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
