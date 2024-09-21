@@ -1,0 +1,42 @@
+# merge the default 'Exclude' key with ours
+inherit_mode:
+  merge:
+    - Exclude
+
+require:
+  - rubocop-minitest
+  - rubocop-performance
+  - rubocop-rake
+
+AllCops:
+  NewCops: enable
+  StyleGuideBaseURL: https://rubystyle.guide
+  TargetRubyVersion: 2.7
+  SuggestExtensions: false
+
+  Exclude:
+    - bin/**/*
+    - tmp/**/*
+
+Bundler/OrderedGems:
+  Include:
+    - '*.gemspec'
+
+
+# Enforce single quotes in the gem
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+Style/HashSyntax:
+  EnforcedStyle: no_mixed_keys # consistent hash syntax
+  EnforcedShorthandSyntax: consistent # enforce explicit hash syntax
+
+# Project maximum code line length
+Layout/LineLength:
+  Max: 120
+
+# Exclude test files from BlockComments check
+Style/BlockComments:
+  Exclude:
+    - 'test/**/*'

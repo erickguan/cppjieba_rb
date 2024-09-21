@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module CppjiebaRb
+  # Sentence segmentation
   class Segment
     VALID_MODES = %i[mix hmm mp query full].freeze
 

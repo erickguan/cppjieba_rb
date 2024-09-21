@@ -1,7 +1,14 @@
+# frozen_string_literal: true
+
 require 'cppjieba_rb/cppjieba_rb'
 require 'cppjieba_rb/version'
 require 'cppjieba_rb/segment'
 
+# CppjiebaRb segments a Chinese sentence into words.
+#
+# Available segmentation methods include HMM, MP, and mix mode.
+# Dictionaries takes a strong part in CppjiebaRb's accuracy.
+# Read more https://github.com/yanyiwu/cppjieba
 module CppjiebaRb
   EXT_BASE = File.join(File.dirname(__FILE__), '..', 'ext', 'cppjieba', 'dict')
   DICT_PATH = File.join(EXT_BASE, 'jieba.dict.utf8')
@@ -28,11 +35,11 @@ module CppjiebaRb
 
   class << self
     def internal
-      @backend ||= CppjiebaRb::Internal.new(DICT_PATH,
-                                            HMM_DICT_PATH,
-                                            USER_DICT,
-                                            IDF_PATH,
-                                            STOP_WORD_PATH)
+      @internal ||= CppjiebaRb::Internal.new(DICT_PATH,
+                                             HMM_DICT_PATH,
+                                             USER_DICT,
+                                             IDF_PATH,
+                                             STOP_WORD_PATH)
     end
   end
 end
