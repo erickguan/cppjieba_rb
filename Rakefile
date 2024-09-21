@@ -14,9 +14,16 @@ Rake::Task[:test].prerequisites << :compile
 Rake::TestTask.new do |t|
   t.libs << 'test'
 end
+
 desc 'clean compile files'
 task :clean_compile do
   system 'rm -r tmp'
   system 'rm lib/*.bundle'
 end
+
 task default: :test
+
+desc 'report gem version'
+task :version do
+  print CppjiebaRb::VERSION
+end
