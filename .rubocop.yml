@@ -40,3 +40,6 @@ Layout/LineLength:
 Style/BlockComments:
   Exclude:
     - 'test/**/*'
+
+Metrics/MethodLength:
+  Max: 100
