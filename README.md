@@ -2,10 +2,6 @@
 
 [![Gem Version](https://badge.fury.io/rb/cppjieba_rb.svg)](http://badge.fury.io/rb/cppjieba_rb)
 
-[![Build Status](https://travis-ci.com/erickguan/cppjieba_rb.svg?branch=master)](https://travis-ci.com/erickguan/cppjieba_rb)
-
-[![Patreon](https://img.shields.io/badge/back_on-patreon-red.svg)](https://www.patreon.com/fantasticfears)
-
 Ruby bindings for [Cppjieba](https://github.com/yanyiwu/cppjieba). C++11 required. (gcc 4.8+)
 
 The TRIE tree has high memory usage. For default dict, it uses ~120 MB memory.
@@ -14,7 +10,11 @@ The TRIE tree has high memory usage. For default dict, it uses ~120 MB memory.
 
 Add this line to your application's Gemfile:
 
-    gem 'cppjieba_rb'
+    gem 'cppjieba_rb', require: false
+
+Or pin a version:
+
+    gem 'cppjieba_rb', '~> 0.4.2', require: false
 
 Or install it as:
 

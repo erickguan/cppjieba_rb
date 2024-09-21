@@ -7,7 +7,7 @@ INCLUDEDIR  = RbConfig::CONFIG['includedir']
 HEADER_DIRS = [
   INCLUDEDIR,
   "#{abs}/../cppjieba/include",
-  "#{abs}/../cppjieba/deps"
+  "#{abs}/../cppjieba/deps/limonp/include",
 ]
 
 LIB_DIRS = [
